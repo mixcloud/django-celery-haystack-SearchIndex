@@ -23,7 +23,7 @@ class SearchIndexUpdateTask(Task):
             logger.error(exc)
             self.retry([app_name, model_name, pk], kwargs, exc=exc)
 
-class SearchIndexUpdateTask(PeriodicTask):
+class SearchIndexUpdatePeriodicTask(PeriodicTask):
     routing_key = 'periodic.search.update_index'
     run_every = crontab(hour=4, minute=0)
 
